@@ -13,8 +13,6 @@ export const useFetch = (url) => {
     data: [],
   };
 
-  console.log(cache);
-
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "FETCHING":

@@ -23,6 +23,7 @@ devDependencies:
   '@snowpack/plugin-react-refresh': 2.4.0_react-dom@17.0.1+react@17.0.1
   '@snowpack/plugin-run-script': 2.3.0
   autoprefixer: 10.2.5_postcss@8.2.8
+  pnpm: 5.18.7
   postcss: 8.2.8
   postcss-cli: 8.3.1_postcss@8.2.8
   prettier: 2.2.1
@@ -1691,6 +1692,13 @@ packages:
     engines:
       node: '>=0.10.0'
 
+  /pnpm/5.18.7:
+    resolution: {integrity: sha512-7LSLQSeskkDtzAuq8DxEcVNWlqFd0ppWPT6Z4+TiS8SjxGCRSpnCeDVzwliAPd0hedl6HuUiSnDPgmg/kHUVXw==}
+    dev: true
+    engines:
+      node: '>=10.16'
+    hasBin: true
+
   /postcss-cli/8.3.1_postcss@8.2.8:
     resolution: {integrity: sha512-leHXsQRq89S3JC9zw/tKyiVV2jAhnfQe0J8VI4eQQbUjwIe0XxVqLrR+7UsahF1s9wi4GlqP6SJ8ydf44cgF2Q==}
     dependencies:
@@ -2479,6 +2487,7 @@ specifiers:
   lodash-es: ^4.17.21
   mdast-util-gfm: ^0.1.2
   micromark-extension-gfm: ^0.3.3
+  pnpm: ^5.18.7
   postcss: ^8.2.8
   postcss-cli: ^8.3.1
   prettier: ^2.2.1
