@@ -1,0 +1,36 @@
+{
+  "name": "seent",
+  "version": "1.0.0",
+  "license": "Unlicense",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "format": "prettier --write \"src/**/*.{js,jsx,css,html}\""
+  },
+  "devDependencies": {
+    "@snowpack/plugin-build-script": "^2.1.0",
+    "@snowpack/plugin-dotenv": "^2.0.5",
+    "@snowpack/plugin-postcss": "^1.1.0",
+    "@snowpack/plugin-react-refresh": "^2.4.0",
+    "@snowpack/plugin-run-script": "^2.3.0",
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.8",
+    "postcss-cli": "^8.3.1",
+    "prettier": "^2.2.1",
+    "snowpack": "^3.0.1",
+    "snowpack-plugin-import-map": "^1.1.4",
+    "tailwindcss": "^2.0.3"
+  },
+  "dependencies": {
+    "htm": "^3.0.4",
+    "i18next": "^19.9.2",
+    "immer": "^8.0.1",
+    "jotai": "^0.15.3",
+    "lodash-es": "^4.17.21",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-i18next": "^11.8.10",
+    "react-router-dom": "^5.2.0",
+    "snoowrap": "^1.22.0"
+  }
+}
