@@ -18,9 +18,7 @@ module.exports = {
     "@snowpack/plugin-react-refresh",
   ],
   routes: [{ match: "routes", src: ".*", dest: "/index.html" }],
-  optimize: {
-    bundle: true,
-  },
+  optimize: {},
   packageOptions: {},
   devOptions: {},
   buildOptions: {},
