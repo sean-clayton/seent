@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import MainLayout from "./MainLayout";
+import PostList from "./PostList";
 
 function SubredditIndex({ match }) {
   const [subredditInfo, setSubredditInfo] = useState(null);
@@ -20,15 +20,11 @@ function SubredditIndex({ match }) {
 
   return (
     <MainLayout>
-      <h1>{match.params.subreddit}</h1>
+      <h1>r/{match.params.subreddit}</h1>
       <div>
-        <ol>
-          {subredditInfo?.data.children.map((post) => (
-            <li key={post.data.id}>
-              <Link to={post.data.permalink}>{post.data.title}</Link>
-            </li>
-          ))}
-        </ol>
+        {subredditInfo ? (
+          <PostList posts={subredditInfo.data.children} />
+        ) : null}
       </div>
     </MainLayout>
   );
