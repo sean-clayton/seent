@@ -1,30 +1,27 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./MainLayout";
 import PostList from "./PostList";
+import useReddit from "./useReddit";
 
 function SubredditIndex({ match }) {
-  const [subredditInfo, setSubredditInfo] = useState(null);
   const url = match.url;
+  const { value, execute } = useReddit(url + ".json?raw_json=1", false);
 
-  async function getSubredditInfo() {
-    setSubredditInfo(
-      await fetch(`https://www.reddit.com${url}.json?raw_json=1`).then((res) =>
-        res.json()
-      )
-    );
+  async function fetchNewSubreddit(newUrl) {
+    execute(newUrl + ".json?raw_json=1");
   }
 
   useEffect(() => {
-    getSubredditInfo();
+    fetchNewSubreddit(url);
   }, [url]);
+
+  if (!value) return null;
 
   return (
     <MainLayout>
       <h1>r/{match.params.subreddit}</h1>
       <div>
-        {subredditInfo ? (
-          <PostList posts={subredditInfo.data.children} />
-        ) : null}
+        <PostList posts={value.data.children} />
       </div>
     </MainLayout>
   );

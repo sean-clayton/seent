@@ -8,18 +8,6 @@ module.exports = {
     "@snowpack/plugin-dotenv",
     "@snowpack/plugin-postcss",
     [
-      "snowpack-plugin-import-map",
-      {
-        imports: {
-          react: true,
-          "react-dom": true,
-          "lodash-es": true,
-          "react-router-dom": true,
-          "react-markdown": true,
-        },
-      },
-    ],
-    [
       "@snowpack/plugin-build-script",
       {
         cmd: "postcss",
@@ -29,21 +17,11 @@ module.exports = {
     ],
     "@snowpack/plugin-react-refresh",
   ],
-  routes: [
-    /* Enable an SPA Fallback in development: */
-    { match: "routes", src: ".*", dest: "/index.html" },
-  ],
+  routes: [{ match: "routes", src: ".*", dest: "/index.html" }],
   optimize: {
-    /* Example: Bundle your final build: */
-    // "bundle": true,
+    bundle: true,
   },
-  packageOptions: {
-    /* ... */
-  },
-  devOptions: {
-    /* ... */
-  },
-  buildOptions: {
-    /* ... */
-  },
+  packageOptions: {},
+  devOptions: {},
+  buildOptions: {},
 };

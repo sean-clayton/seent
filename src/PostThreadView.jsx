@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
+import Comments from "./Comments";
 import MainLayout from "./MainLayout";
+import Markdown from "./Markdown";
+import SmartLink from "./SmartLink";
 
 function PostThreadView({ match }) {
-  const [[post, comments], setThreadData] = useState([null, null]);
+  const [[postData, comments], setThreadData] = useState([null, null]);
+  const post = postData?.data.children[0];
 
   async function getThreadData() {
     setThreadData(
@@ -18,25 +21,25 @@ function PostThreadView({ match }) {
     getThreadData();
   }, []);
 
+  if (!post || !comments) return null;
+
   return (
     <MainLayout>
-      <h1 className="text-xl">{post?.data.children[0].data.title}</h1>
+      <h1 className="text-xl">
+        <SmartLink href={post.data.url}>{post.data.title}</SmartLink>
+      </h1>
       <h2>
         <Link to={`/r/${match.params.subreddit}`}>
           r/{match.params.subreddit}
         </Link>
       </h2>
+      {post.data.selftext ? (
+        <article className="my-4">
+          <Markdown>{post.data.selftext}</Markdown>
+        </article>
+      ) : null}
       <div>
-        <ol className="flex flex-col gap-y-2">
-          {comments?.data.children.map((comment) => (
-            <li
-              key={comment.data.id}
-              className="p-2 border-gray-100 rounded-sm border-2"
-            >
-              <ReactMarkdown>{comment.data.body}</ReactMarkdown>
-            </li>
-          ))}
-        </ol>
+        <Comments comments={comments.data.children} />
       </div>
     </MainLayout>
   );

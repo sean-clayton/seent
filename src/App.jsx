@@ -1,25 +1,30 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import _ from "lodash-es";
-import Homepage from "./Homepage";
+import ScrollMemory from "react-router-scroll-memory";
+import { Provider as JotaiProvider } from "jotai";
+import Frontpage from "./Frontpage";
 import SubredditView from "./SubredditView";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={Homepage} />
-        <Route path="/r/" component={SubredditView} />
-        <Route path="/subreddits/" />
-        <Route path="/search/" />
-        <Route path="/chat/" />
-        <Route path="/message/" />
-        <Route path="/submit/" />
-        <Route path="/me/" />
-        <Route path="/user/" />
-        <Route path="/settings/" />
-      </Switch>
-    </Router>
+    <JotaiProvider>
+      <Router>
+        <ScrollMemory />
+        <Switch>
+          <Route path="/" exact component={Frontpage} />
+          <Route path="/r/" component={SubredditView} />
+          <Route path="/subreddits/" />
+          <Route path="/search/" />
+          <Route path="/chat/" />
+          <Route path="/message/" />
+          <Route path="/submit/" />
+          <Route path="/me/" />
+          <Route path="/user/" />
+          <Route path="/settings/" />
+        </Switch>
+      </Router>
+    </JotaiProvider>
   );
 }
 

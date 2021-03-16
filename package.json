@@ -22,14 +22,21 @@
     "tailwindcss": "^2.0.3"
   },
   "dependencies": {
+    "@fec/remark-a11y-emoji": "^3.1.0",
     "i18next": "^19.9.2",
     "immer": "^8.0.1",
     "jotai": "^0.15.3",
     "lodash-es": "^4.17.21",
+    "mdast-util-gfm": "^0.1.2",
+    "micromark-extension-gfm": "^0.3.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-i18next": "^11.8.10",
     "react-markdown": "^5.0.3",
-    "react-router-dom": "^5.2.0"
+    "react-remark": "^2.0.3",
+    "react-router-dom": "^5.2.0",
+    "react-router-scroll-memory": "^2.0.7",
+    "remark-gfm": "^1.0.0",
+    "remark-inline-links": "^5.0.0"
   }
 }
