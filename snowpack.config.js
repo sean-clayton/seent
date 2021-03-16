@@ -8,6 +8,18 @@ module.exports = {
     "@snowpack/plugin-dotenv",
     "@snowpack/plugin-postcss",
     [
+      "snowpack-plugin-import-map",
+      {
+        imports: {
+          react: true,
+          "react-dom": true,
+          "lodash-es": true,
+          "react-router-dom": true,
+          "react-markdown": true,
+        },
+      },
+    ],
+    [
       "@snowpack/plugin-build-script",
       {
         cmd: "postcss",
