@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import MainLayout from "./MainLayout";
 
@@ -26,9 +27,14 @@ function PostThreadView({ match }) {
         </Link>
       </h2>
       <div>
-        <ol>
+        <ol className="flex flex-col gap-y-2">
           {comments?.data.children.map((comment) => (
-            <li key={comment.data.id}>{comment.data.body}</li>
+            <li
+              key={comment.data.id}
+              className="p-2 border-gray-100 rounded-sm border-2"
+            >
+              <ReactMarkdown>{comment.data.body}</ReactMarkdown>
+            </li>
           ))}
         </ol>
       </div>

@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 function MainLayout({ children }) {
   return (
-    <main className="min-h-screen min-w-full">
-      <nav>
+    <div className="min-h-screen min-w-full">
+      <nav className="flex gap-1 p-1">
+        <Link to="/">Frontpage</Link>
         <Link to="/r/all">All</Link>
-        <br />
         <Link to="/r/popular">Popular</Link>
       </nav>
-      {children}
-    </main>
+      <main className="p-1">{children}</main>
+    </div>
   );
 }
 
